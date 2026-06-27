@@ -1,0 +1,70 @@
+ Objective
+
+Write a program that prints every permutation of one string argument.
+
+Steps
+
+
+
+Do not print duplicate lines.
+
+
+examples
+
+
+./lex_permutations cab | cat -e
+
+abc$
+
+acb$
+
+bac$
+
+bca$
+
+cab$
+
+cba$
+
+
+./lex_permutations m | cat -e
+
+m$
+
+
+Constraints
+
+Expected files
+
+lex_permutations.c
+
+Allowed functions
+
+write puts malloc calloc realloc free
+
+The program expects exactly one argument.
+
+Inputs contain no repeated characters.
+
+Print one permutation per line.
+
+The output must be in lexicographic order, even when the input argument is not sorted.
+
+If the argument count is wrong, return 1.
+
+
+/////////////////////////////////
+#include <unistd.h>
+
+int main(int argc, char **argv)
+
+{
+
+(void)argc;
+
+(void)argv;
+
+return (0);
+
+} 
+/////////////////////////////////

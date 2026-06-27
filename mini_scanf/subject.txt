@@ -1,0 +1,38 @@
+mini_scanf
+32 XP
+
+Objective
+
+Implement mini_scanf, a reduced formatted input function that reads from standard input.
+
+Steps
+
+Expose int mini_scanf(const char *format, ...); from mini_scanf.c.
+Support only the conversions %s, %d, and %c.
+Whitespace in the format string must consume any amount of whitespace from input.
+%d and %s skip leading whitespace before reading their value.
+%c reads exactly one byte and does not skip leading whitespace by itself.
+Literal characters in the format must match the next input byte.
+
+    Return the number of successful conversions, or EOF only when input ends before any conversion is possible.
+
+examples
+
+standard input: `-17 bridge Z`, call `mini_scanf("%d %s %c", &n, word, &c)`
+
+returns 3, stores -17, `bridge`, and `Z`
+
+standard input: `xy z`, call `mini_scanf("%c%c%c", &a, &b, &c)`
+
+returns 3, stores `x`, `y`, then a space
+Constraints
+
+Expected files
+mini_scanf.c
+
+Allowed functions
+[fgetc] [ungetc] [ferror] [feof] [isspace] [isdigit] [va_start] [va_arg] [va_copy] [va_end]
+
+
+PROTOTYPE: int mini_scanf(const char *format, ...);
+

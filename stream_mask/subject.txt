@@ -1,0 +1,30 @@
+Objective
+
+Write a program that copies standard input to standard output while masking a chosen byte sequence.
+
+Steps
+
+The program expects exactly one non-empty argument: the token to mask.
+Read all data from standard input until end of file.
+Every non-overlapping occurrence of the token must be replaced by the same number of * characters.
+All other bytes must be written unchanged, including spaces and newlines.
+If a read or allocation error happens, write an error message to standard error and return 1.
+
+    If the argument count is wrong or the token is empty, return 1.
+
+examples
+
+printf 'alpha beta alpha\n' | ./stream_mask alpha | cat -e
+
+***** beta *****$
+
+printf 'aaaaa' | ./stream_mask aa | cat -e
+
+****a
+Constraints
+
+Expected files
+stream_mask.c
+
+Allowed functions
+read write strlen memmem memmove malloc calloc realloc free printf fprintf perror

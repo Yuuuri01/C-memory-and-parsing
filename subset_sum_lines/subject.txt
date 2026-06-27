@@ -1,0 +1,48 @@
+Hada subject b style dyal 42 School 👇
+
+subset_sum_lines
+
+### Assignment name
+
+subset_sum_lines
+
+Expected files: *.c, *.h
+
+Allowed functions: write, malloc, free
+
+### Subject
+
+Write a program that prints every subset of a set of integers whose sum is equal to a target value.
+
+The first command-line argument is the target sum. Every following argument is a distinct integer belonging to the source set.
+
+Your program must print one matching subset per line.
+
+### Rules
+
+* Values inside a subset must appear in the same order as they were received.
+
+* Matching subsets must be printed in depth-first input order: for each value, try keeping it before skipping it.
+
+* The empty subset is valid when the target is 0 and must be printed as an empty line.
+
+* If there is no matching subset, print nothing.
+
+* If fewer than 2 arguments are provided, the program must return 1.
+
+### Examples
+
+$ ./subset_sum_lines 6 1 4 5 | cat -e
+
+1 5$
+
+$ ./subset_sum_lines 0 7 | cat -e
+
+$
+
+### Hint
+
+Hint
+
+A recursive backtracking solution is expected.
+
