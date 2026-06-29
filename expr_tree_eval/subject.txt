@@ -1,0 +1,38 @@
+expr_tree_eval
+32 XP
+
+Objective
+
+Write a program that evaluates a compact arithmetic expression.
+
+Steps
+
+Create expr_tree_eval.c.
+The program expects exactly one expression argument.
+The expression contains only digits from 0 to 9, +, *, (, and ).
+There are no spaces to handle.
+* has higher precedence than +.
+Parentheses override precedence.
+Print the computed integer followed by a newline for a valid expression.
+For a malformed expression, print Invalid token '<char>' followed by a newline and return 1.
+If the malformed expression ends where another token was required, print Unexpected end followed by a newline and return 1.
+
+    Return 1 when the argument count is wrong.
+
+examples
+
+./expr_tree_eval '8+2*5'
+
+18\n
+
+./expr_tree_eval '(8+2)*5'
+
+50\n
+
+
+include <unistd.h>
+
+int	main(int argc, char **argv)
+{
+
+}

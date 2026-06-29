@@ -1,0 +1,35 @@
+				[pipe_chain]
+
+
+Objective
+Implement pipe_chain, a compact pipeline executor for already-tokenized commands.
+
+/////
+Steps
+/////
+Create pipe_chain.c.
+Expose int pipe_chain(char **cmds[]);.
+cmds is a NULL-terminated array of commands.
+Each command is an argv-style NULL-terminated array ready to pass to execvp.
+Run every command in order and connect command N standard output to command N+1 standard input.
+Wait for every child process before returning.
+Return 0 when the pipeline was launched and waited successfully.
+Return 1 if a system call needed by the pipeline fails.
+
+Close all pipe file descriptors in parent and child processes as soon as they ar no longer needed.
+
+examples
+
+pipe_chain({{"printf", "alpha\\nbeta\\n", NULL}, {"grep", "beta", NULL}, NULL})
+
+beta\n
+Constraints
+
+
+//////////////
+Expected files
+pipe_chain.c
+//////////////
+
+Allowed functions
+close///fork///wait///exit///execvp///dup2///pipe

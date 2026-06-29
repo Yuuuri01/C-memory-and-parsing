@@ -1,0 +1,41 @@
+Objective
+
+Reimplement realloc's grow/shrink pattern with an explicit old size: move a heap block to a buffer of a new size while keeping its leading bytes.
+
+Steps
+
+Allocate new_size bytes with malloc. If the allocation fails, return NULL.
+If ptr is NULL, there is nothing to preserve, just behave like malloc(new_size).
+Otherwise copy the first min(old_size, new_size) bytes from ptr into the new block, byte by byte.
+Free the old block with free(ptr), then return the new one.
+Why the explicit old_size? The real two-argument realloc can't be written in user code: there is no portable way to ask the allocator how big an existing block was, and <stdlib.h> already declares realloc. This signature hands you that missing size so you can copy exactly the right amount.
+
+    Bytes past min(old_size, new_size) in a grown block are uninitialized, that space belongs to the caller to fill.
+
+examples
+
+p = malloc(4); /* 'A','B','C','D' */ q = mem_resize(p, 4, 8);
+
+first 4 bytes of q: ABCD
+
+p = malloc(8); /* 'A'..'H' */ q = mem_resize(p, 8, 4);
+
+first 4 bytes of q: ABCD
+
+q = mem_resize(NULL, 0, 6); /* like malloc(6) */
+
+q is a fresh 6-byte block
+Constraints
+
+Expected files
+mem-resize.c
+
+Allowed functions
+
+
+prototype : void	*mem_resize(void *ptr, size_t old_size, size_t new_size);
+mallocfree
+
+Allowed libraries
+<stdlib.h>declares malloc and free
+<stddef.h>defines size_t
