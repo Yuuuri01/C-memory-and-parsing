@@ -1,0 +1,28 @@
+Write a program that marks the largest clear square inside a text map.
+
+Steps
+
+Create largest_clear_square.c.
+The program expects no command-line arguments.
+Read one map from standard input.
+The first line contains four space-separated fields: row count, empty character, obstacle character, and fill character.
+The following rows form the map.
+All map rows must have the same non-zero width and must contain only the declared empty or obstacle characters.
+The three declared characters must be distinct single printable characters.
+Replace the largest square made only of empty cells with the fill character.
+When several squares have the same size, choose the one with the smallest row index, then the smallest column index.
+Print the transformed map to standard output.
+If the map is valid but contains no empty cell, print it unchanged.
+Print map error followed by a newline and return 1 for malformed input.
+
+    Return 1 when any command-line argument is provided.
+
+examples
+
+printf '3 . # x\n....\n....\n....\n' | ./largest_clear_square
+
+xxx.\nxxx.\nxxx.\n
+
+printf '2 _ # +\n##\n##\n' | ./largest_clear_square
+
+##\n##\n
